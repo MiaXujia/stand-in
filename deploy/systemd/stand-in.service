@@ -1,0 +1,20 @@
+[Unit]
+Description=stand-in (private chat companion)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=standin
+Group=standin
+WorkingDirectory=/opt/stand-in
+EnvironmentFile=/opt/stand-in/.env
+Environment=STANDIN_ROOT=/opt/stand-in
+ExecStart=/opt/stand-in/.venv/bin/uvicorn app.main:create_app --factory --host 127.0.0.1 --port 8000 --workers 1
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+.git
+.gitignore
+.venv
+.uv-cache
+.pytest-tmp
+.pytest_cache
+web/node_modules
+web/dist
+web/dev-dist
+data
+persona
+memory
+config/messaging.json
+.env
+*.db
+*.db-wal
+*.db-shm

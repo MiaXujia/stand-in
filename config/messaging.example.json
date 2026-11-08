@@ -1,0 +1,40 @@
+{
+  "quietHours": { "start": "22:30", "end": "08:30" },
+  "minGapMinutes": 120,
+  "maxProactivePerDay": 3,
+  "noReplyNoSecondMessage": true,
+  "defaultWindowMinutes": 45,
+  "tasks": [
+    {
+      "id": "lunch",
+      "label": "午饭",
+      "at": "12:00",
+      "windowMinutes": 40,
+      "days": [1, 2, 3, 4, 5, 6, 7],
+      "intent": "问她吃午饭没。要具体：提她昨天说想吃的、或者直接问吃了什么。",
+      "maxPerDay": 1,
+      "enabled": true
+    },
+    {
+      "id": "morning",
+      "label": "早安",
+      "at": "08:40",
+      "windowMinutes": 30,
+      "days": [1, 2, 3, 4, 5],
+      "intent": "早上打招呼。别问早安，说一件和今天有关的小事（天气/她的课/她的会）。",
+      "maxPerDay": 1,
+      "enabled": true
+    },
+    {
+      "id": "night",
+      "label": "晚安",
+      "at": "23:10",
+      "windowMinutes": 20,
+      "days": [1, 2, 3, 4, 5, 6, 7],
+      "intent": "睡前一句。短，不查岗，不问她今天干了什么。",
+      "maxPerDay": 1,
+      "enabled": true,
+      "ignoreQuietHours": true
+    }
+  ]
+}

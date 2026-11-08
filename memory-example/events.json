@@ -1,0 +1,15 @@
+{
+  "_说明": "共同事件时间线。date 用 YYYY-MM-DD；每年循环的加 annual: true。",
+  "_怎么填": "只填真发生过的。宁可少，不许猜。",
+  "items": [],
+  "_examples": [
+    {
+      "id": "ev-met",
+      "date": "2023-04-15",
+      "annual": true,
+      "text": "第一次见面，在 XX 书店，她穿灰色卫衣，我迟到 20 分钟",
+      "tags": ["纪念日", "第一次"],
+      "visibility": "chat"
+    }
+  ]
+}

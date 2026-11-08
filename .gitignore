@@ -1,0 +1,63 @@
+# ============================================================
+#  个人数据 —— 这些是"事故"的来源，永远不要提交
+# ============================================================
+data/
+finetune/data/
+*.jsonl
+persona/
+memory/
+config/messaging.json
+*.db
+*.db-wal
+*.db-shm
+
+# 密钥
+.env
+.env.local
+
+# ============================================================
+#  Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+.coverage
+htmlcov/
+
+# ============================================================
+#  前端（构建产物与依赖）
+# ============================================================
+web/node_modules/
+web/dist/
+web/dev-dist/
+*.tsbuildinfo
+
+# ============================================================
+#  系统 / IDE
+# ============================================================
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
+.idea/
+.vscode/
+*.code-workspace
+
+# pytest 临时目录
+.pytest-tmp/
+
+# 本地安装/缓存
+.pnpm-store/
+.pnpm-home/
+.npm-cache/
+.uv-cache/
+
+# 本地截图
+preview/

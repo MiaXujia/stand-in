@@ -1,0 +1,42 @@
+name: stand-in
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    env_file: ../.env
+    environment:
+      STANDIN_ROOT: /app
+      DATA_DIR: /app/data
+      PERSONA_DIR: /app/persona
+      MEMORY_DIR: /app/memory
+      CONFIG_DIR: /app/config
+      TZ: Asia/Shanghai
+    volumes:
+      - ../data:/app/data
+      - ../persona:/app/persona
+      - ../memory:/app/memory
+      - ../config:/app/config
+    ports:
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["tls"]
+    depends_on:
+      - app
+    env_file: ../.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

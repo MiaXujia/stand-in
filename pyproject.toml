@@ -1,0 +1,53 @@
+[project]
+name = "stand-in"
+version = "0.1.0"
+description = "A private chat companion (single user, single process)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.32,<1",
+  "pydantic>=2.9,<3",
+  "pydantic-settings>=2.6,<3",
+  "sqlalchemy>=2.0.36,<3",
+  "apscheduler>=3.10,<4",
+  "openai>=1.54,<2",
+  "httpx>=0.27,<1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3",
+  "pytest-cov>=6",
+  "ruff>=0.7",
+  "mypy>=1.13",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["."]
+addopts = "-q -p no:cacheprovider --basetemp=.pytest-tmp"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".uv-cache", ".pytest-tmp", ".venv", "data", "web/dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501", "B008"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_unused_ignores = true
+disallow_untyped_defs = false
+exclude = ["test/", "web/"]
+
+[tool.coverage.run]
+source = ["app"]
